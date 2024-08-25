@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+:root {
+    --color-light-700: #fff;
+    --color-light-500: #F2F2F2;
+    --color-light-300: #ccc;
+    --color-purple: #6278F7;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: calibri;
+}
