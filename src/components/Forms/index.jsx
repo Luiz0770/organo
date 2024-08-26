@@ -4,7 +4,17 @@ import DropDown from '../DropDown'
 import './Forms.css'
 import { useState } from 'react'
 
-const Formulario = ({aoEnviar, times}) => {
+const Formulario = ({aoEnviar}) => {
+
+    const times = [
+        'Corinthians',
+        'Palmeiras',
+        'Sao Paulo',
+        'Santos',
+        'Flamengo',
+        'Fluminese',
+      ]
+
 
     const [nome, SetNome] = useState('')
     const [cargo, SetCargo] = useState('')
