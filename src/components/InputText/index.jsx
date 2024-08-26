@@ -1,14 +1,13 @@
 import './InputText.css'
 
-function InputText({ label, obrigatorio, placeholder, aoDigitar, valor}) {
-
+function InputText({ label, obrigatorio, placeholder, aoAlterar, valor}) {
     return (
         <div className="inputText">
             <label>
                 {label}
             </label>
             <input
-                onChange={aoDigitar}
+                onChange={aoAlterar}
                 value={valor}
                 required={obrigatorio}
                 placeholder={placeholder}

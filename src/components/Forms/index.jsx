@@ -4,28 +4,25 @@ import DropDown from '../DropDown'
 import './Forms.css'
 import { useState } from 'react'
 
-const Formulario = () => {
+const Formulario = ({aoEnviar, times}) => {
 
-    const times = [
-        'Corinthians',
-        'Palmeiras',
-        'Sao Paulo',
-        'Santos',
-        'Flamengo',
-        'Fluminese',
-        'Atletico MG'
-    ]
+    const [nome, SetNome] = useState('')
+    const [cargo, SetCargo] = useState('')
+    const [imagem, SetImagem] = useState('')
+    const [timeSelecionado, SetTimeSelecionado] = useState('')
 
-    const enviarFormulario = (e) => {
+    function enviarFormulario(e) {
         e.preventDefault()
-        console.log('Form foi submetido', nome, cargo, imagem)
+        aoEnviar({
+            nome: nome,
+            cargo: cargo,
+            imagem: imagem,
+            time: timeSelecionado
+        })
     }
 
-   const [nome, SetNome] = useState('')
-   const [cargo, SetCargo] = useState('')
-   const [imagem, SetImagem] = useState('')
 
-    console.log(nome)
+    // console.log(timeSelecionado)
 
     return (
         <section className="formulario">
@@ -37,14 +34,14 @@ const Formulario = () => {
                     placeholder="Digite seu nome"
                     obrigatorio={true}
                     valor={nome}
-                    aoDigitar={valor => SetNome(valor)}
+                    aoAlterar={e => SetNome(e.target.value)}
                 />
 
                 <InputText
                     label="Cargo"
                     placeholder="Digite seu cargo"
                     obrigatorio={true}
-                    aoDigitar={valor => SetCargo(valor)}
+                    aoAlterar={e => SetCargo(e.target.value)}
                     valor={cargo}
                 />
 
@@ -52,7 +49,7 @@ const Formulario = () => {
                     label="Imagem"
                     placeholder="Digite o endereço da imagem"
                     obrigatorio={false}
-                    aoDigitar={valor => SetImagem(valor)}
+                    aoAlterar={e => SetImagem(e.target.value)}
                     valor={imagem}
                 />
 
@@ -60,6 +57,7 @@ const Formulario = () => {
                     label="Time"
                     itens={times}
                     obrigatorio={true}
+                    aoAlterar={e => SetTimeSelecionado(e.target.value)}
                 />
 
                 <Button>
