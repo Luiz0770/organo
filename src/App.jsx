@@ -45,11 +45,14 @@ function App() {
     setParticipantes([...participantes, novoParticipante])
   }
 
+  // console.log(participantes)
+
   return (
     <>
       <Banner />
       <Forms
         aoEnviar={novoParticipante => aoSalvar(novoParticipante)}
+        times={times.map(time => time.nome) }
       />
 
       {times.map(time => {
@@ -58,6 +61,7 @@ function App() {
           label={time.nome}
           corFundo={time.corFundo}
           corPrimario={time.corPrimario}
+          participantes={participantes.filter(participante => participante.time == time.nome)}
         />
       })}
     </>

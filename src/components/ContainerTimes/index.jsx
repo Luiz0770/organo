@@ -1,15 +1,21 @@
 import Card from '../Cards';
 import './ContainerTimes.css'
 
-function ContainerTimes({label, corFundo, corPrimario}) {
+function ContainerTimes({ label, corFundo, corPrimario, participantes }) {
+
+    console.log(participantes)
+
     return (
         <>
-            <section className='containerTimes' style={{backgroundColor: corFundo}}>
-                <h3 style={{borderColor: corPrimario, color: corPrimario}}>{label}</h3>
+            <section className='containerTimes' style={{ backgroundColor: corFundo }}>
+                <h3 style={{ borderColor: corPrimario, color: corPrimario }}>{label}</h3>
                 <div className='contianer-cards'>
-                    <Card/>
-                    <Card/>
-                    <Card/>
+                    {participantes.map(participante =>
+                        <Card key={participante.nome}
+                            nome={participante.nome}
+                            cargo={participante.cargo}
+                            imagem={participante.imagem}
+                        />)}
                 </div>
             </section>
         </>

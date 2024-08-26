@@ -4,17 +4,7 @@ import DropDown from '../DropDown'
 import './Forms.css'
 import { useState } from 'react'
 
-const Formulario = ({aoEnviar}) => {
-
-    const times = [
-        'Corinthians',
-        'Palmeiras',
-        'Sao Paulo',
-        'Santos',
-        'Flamengo',
-        'Fluminese',
-      ]
-
+const Formulario = ({aoEnviar, times}) => {
 
     const [nome, SetNome] = useState('')
     const [cargo, SetCargo] = useState('')
@@ -32,7 +22,7 @@ const Formulario = ({aoEnviar}) => {
     }
 
 
-    // console.log(timeSelecionado)
+    // console.log(times)
 
     return (
         <section className="formulario">

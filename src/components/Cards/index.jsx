@@ -1,13 +1,12 @@
 import './Cards.css'
-import perfil from '../../assets/Ellipse.png'
 
-function Card() {
+function Card({nome, cargo, imagem}) {
     return (
         <>
             <div className='card'>
-                <img src={perfil}/>
-                <h4>Luiz Felipe</h4>
-                <p>Desenvolvedor</p>
+                <img src={imagem} alt={nome}/>
+                <h4>{nome}</h4>
+                <p>{cargo}</p>
             </div>
         </>);
 }
