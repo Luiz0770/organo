@@ -61,7 +61,7 @@ function App() {
           label={time.nome}
           corFundo={time.corFundo}
           corPrimario={time.corPrimario}
-          participantes={participantes.filter(participante => participante.time == time.nome)}
+          participantes={participantes.filter(participante => participante.time === time.nome)}
         />
       })}
     </>

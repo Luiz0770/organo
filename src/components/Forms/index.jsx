@@ -19,6 +19,11 @@ const Formulario = ({aoEnviar, times}) => {
             imagem: imagem,
             time: timeSelecionado
         })
+        // Apagando dados apos enviar o formulario
+        SetNome('')
+        SetCargo('')
+        SetImagem('')
+        SetTimeSelecionado('')
     }
 
 
@@ -48,7 +53,7 @@ const Formulario = ({aoEnviar, times}) => {
                 <InputText
                     label="Imagem"
                     placeholder="Digite o endereço da imagem"
-                    obrigatorio={false}
+                    obrigatorio={true}
                     aoAlterar={e => SetImagem(e.target.value)}
                     valor={imagem}
                 />

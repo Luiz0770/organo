@@ -7,6 +7,7 @@ function DropDown({label, itens, obrigatorio, aoAlterar}) {
         <div className='lista-suspensa'>
             <label>{label}</label>
             <select required={obrigatorio} onChange={aoAlterar}>
+                <option value={""}></option>
                 {itens.map(item => {
                     return <option key={item}>{item}</option>
                 })}
