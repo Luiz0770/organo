@@ -4,6 +4,8 @@
     align-items: center;
     justify-content: center;
     padding: 3rem;
+    position: relative;
+    background-blend-mode: multiply;
 }
 
 .containerTimes h3 {
@@ -20,5 +22,11 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
+}
+
+.input-color {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
 }
 

@@ -1,22 +1,24 @@
 import Card from '../Cards';
 import './ContainerTimes.css'
 
-function ContainerTimes({ label, corFundo, corPrimario, participantes }) {
-
-    console.log(participantes.length)
-
+function ContainerTimes({ label, corFundo, corPrimario, participantes, aoDeletar, aoMudarCor }) {
+    
     if (participantes.length > 0) {
         return (
             <>
                 <section className='containerTimes' style={{ backgroundColor: corFundo }}>
+                    <input type="color" className="input-color" id="input-color" onChange={e => aoMudarCor(e.target.value, label)} value={corPrimario} />
                     <h3 style={{ borderColor: corPrimario, color: corPrimario }}>{label}</h3>
                     <div className='contianer-cards'>
-                        {participantes.map(participante =>
-                            <Card key={participante.nome}
+                        {participantes.map(participante => {
+                            return <Card key={participante.nome}
                                 nome={participante.nome}
                                 cargo={participante.cargo}
                                 imagem={participante.imagem}
-                            />)}
+                                aoDeletar={aoDeletar}
+                                corPrimario={corPrimario}
+                            />
+                        })}
                     </div>
                 </section>
             </>

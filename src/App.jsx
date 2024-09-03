@@ -6,7 +6,7 @@ import ContainerTimes from './components/ContainerTimes'
 
 function App() {
 
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: "Corinthians",
       corFundo: "#878787",
@@ -37,7 +37,7 @@ function App() {
       corFundo: "#57a183",
       corPrimario: "#5e0707"
     },
-  ]
+  ])
 
   let [participantes, setParticipantes] = useState([])
 
@@ -45,14 +45,26 @@ function App() {
     setParticipantes([...participantes, novoParticipante])
   }
 
-  // console.log(participantes)
+  function aoDeletar() {
+    console.log('funfa')
+  }
+
+  function aoMudarCor(cor, timeEscolhido) {
+    console.log(cor, timeEscolhido)
+    setTimes(times.map((time) => {
+        if (time.nome == timeEscolhido) {
+          time.corPrimario = cor;
+        }
+      return time
+    }))
+  }
 
   return (
     <>
       <Banner />
       <Forms
         aoEnviar={novoParticipante => aoSalvar(novoParticipante)}
-        times={times.map(time => time.nome) }
+        times={times.map(time => time.nome)}
       />
 
       {times.map(time => {
@@ -62,6 +74,8 @@ function App() {
           corFundo={time.corFundo}
           corPrimario={time.corPrimario}
           participantes={participantes.filter(participante => participante.time === time.nome)}
+          aoDeletar={aoDeletar}
+          aoMudarCor={aoMudarCor}
         />
       })}
     </>
