@@ -1,14 +1,14 @@
-.inputText {
+.input {
     margin: 24px auto;
 }
 
-.inputText label {
+.input label {
     display: block;
     margin-bottom: 8px;
     font-size: 2.4rem;
 }
 
-.inputText input {
+.input input {
     background-color: var(--color-light-700);
     box-shadow: 10px 10px 30px var(--color-light-300);
     width: 100%;
@@ -17,4 +17,9 @@
     font-size: 1.8rem;
     padding: 24px;
     box-sizing: border-box;
+}
+
+.type-color input {
+    min-height: 10vh;
+    padding: 1rem;
 }

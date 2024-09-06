@@ -1,3 +1,8 @@
+.forms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .formulario {
     display: flex;
     justify-content: center;
@@ -11,9 +16,8 @@
 }
 
 .formulario form {
-    width: 70%;
     background-color: var(--color-light-500);
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     padding: 36px 64px;
     box-shadow: 10px 10px 16px var(--color-light-300);
 }

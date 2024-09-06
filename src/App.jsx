@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import { Banner } from './components/Banner'
 import Forms from './components/Forms'
 import ContainerTimes from './components/ContainerTimes'
@@ -45,24 +44,39 @@ function App() {
     setParticipantes([...participantes, novoParticipante])
   }
 
-  function aoDeletar() {
-    console.log('funfa')
+  function aoDeletar(nome) {
+    setParticipantes(participantes.filter(participante => participante.nome != nome))
+  }
+
+  console.log(participantes)
+
+  function aoFavoritar(nome) {
+    setParticipantes(participantes.map(participante => {
+      if (participante.nome === nome) participante.favorito = !participante.favorito
+      return participante
+    }))
   }
 
   function aoMudarCor(cor, timeEscolhido) {
     console.log(cor, timeEscolhido)
     setTimes(times.map((time) => {
-        if (time.nome == timeEscolhido) {
-          time.corPrimario = cor;
-        }
+      if (time.nome == timeEscolhido) {
+        time.corPrimario = cor;
+      }
       return time
     }))
+  }
+
+  function criarTime(novoTime) {
+    setTimes([...times, novoTime])
+    console.log(times)
   }
 
   return (
     <>
       <Banner />
       <Forms
+        criarTime={criarTime}
         aoEnviar={novoParticipante => aoSalvar(novoParticipante)}
         times={times.map(time => time.nome)}
       />
@@ -76,6 +90,7 @@ function App() {
           participantes={participantes.filter(participante => participante.time === time.nome)}
           aoDeletar={aoDeletar}
           aoMudarCor={aoMudarCor}
+          aoFavoritar={aoFavoritar}
         />
       })}
     </>

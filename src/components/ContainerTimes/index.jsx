@@ -1,7 +1,7 @@
 import Card from '../Cards';
 import './ContainerTimes.css'
 
-function ContainerTimes({ label, corFundo, corPrimario, participantes, aoDeletar, aoMudarCor }) {
+function ContainerTimes({ label, corFundo, corPrimario, participantes, aoDeletar, aoMudarCor, aoFavoritar }) {
     
     if (participantes.length > 0) {
         return (
@@ -15,7 +15,9 @@ function ContainerTimes({ label, corFundo, corPrimario, participantes, aoDeletar
                                 nome={participante.nome}
                                 cargo={participante.cargo}
                                 imagem={participante.imagem}
+                                favorito={participantes.favorito}
                                 aoDeletar={aoDeletar}
+                                aoFavoritar={aoFavoritar}
                                 corPrimario={corPrimario}
                             />
                         })}
