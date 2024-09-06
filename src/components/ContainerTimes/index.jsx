@@ -15,7 +15,7 @@ function ContainerTimes({ label, corFundo, corPrimario, participantes, aoDeletar
                                 nome={participante.nome}
                                 cargo={participante.cargo}
                                 imagem={participante.imagem}
-                                favorito={participantes.favorito}
+                                favorito={participante.favorito}
                                 aoDeletar={aoDeletar}
                                 aoFavoritar={aoFavoritar}
                                 corPrimario={corPrimario}

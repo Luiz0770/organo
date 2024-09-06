@@ -48,8 +48,6 @@ function App() {
     setParticipantes(participantes.filter(participante => participante.nome != nome))
   }
 
-  console.log(participantes)
-
   function aoFavoritar(nome) {
     setParticipantes(participantes.map(participante => {
       if (participante.nome === nome) participante.favorito = !participante.favorito

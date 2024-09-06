@@ -5,7 +5,14 @@ import './Cards.css'
 
 function Card({ nome, cargo, imagem, aoDeletar, corPrimario, favorito, aoFavoritar }) {
 
-    console.log(favorito)
+    function favoritar() {
+        aoFavoritar(nome)
+    }
+
+    const propsFavorito = {
+        size: 20,
+        onClick: favoritar
+    }
 
     return (
         <>
@@ -19,7 +26,7 @@ function Card({ nome, cargo, imagem, aoDeletar, corPrimario, favorito, aoFavorit
                     <div>
                         <IoIosClose size={25} onClick={() => aoDeletar(nome)} />
                     </div>
-                    {favorito ? <MdFavorite size={20} onClick={() => aoFavoritar(nome)} /> : <MdFavoriteBorder size={20} onClick={() => aoFavoritar(nome)} />}
+                    {favorito ? <MdFavorite {...propsFavorito} color="red"/> : <MdFavoriteBorder {...propsFavorito} />}
                 </div>
             </div>
         </>);

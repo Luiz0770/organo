@@ -20,7 +20,7 @@ const Formulario = ({ criarTime, aoEnviar, times }) => {
             cargo: cargo,
             imagem: imagem,
             time: timeSelecionado,
-            favorito: "1"
+            favorito: false
         })
         // Apagando dados apos enviar o formulario
         SetNome('')
